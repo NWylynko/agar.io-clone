@@ -3,3 +3,7 @@ npm-debug.log
 .idea
 client/bower_components
 bin
+src/.DS_Store
+src/server/.DS_Store
+.DS_Store
+package-lock.json
