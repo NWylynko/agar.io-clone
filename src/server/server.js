@@ -428,8 +428,15 @@ io.on('connection', function (socket) {
     socket.on('setvar', function(data) {
         if (currentPlayer.admin) {
           if (data.length > 1) {
-            console.log('[ADMIN] ' + currentPlayer.name + ' set ' + data[0] + ' to ' + data[1]);
-            socket.emit('serverMSG', 'set ' + data[0] + ' to ' + data[1]);
+            try {
+              c[data[0]] == data[1]
+              console.log('[ADMIN] ' + currentPlayer.name + ' set ' + data[0] + ' to ' + data[1]);
+              socket.emit('serverMSG', 'set ' + data[0] + ' to ' + data[1]);
+            }
+            except(e) {
+              console.log('[ADMIN] ' + currentPlayer.name + ' couldn\'t set ' + data[0] + ' to ' + data[1]);
+              socket.emit('serverMSG', 'couldn\'t set ' + data[0] + ' to ' + data[1]);
+            }
           } else {
             console.log('[ADMIN] ' + currentPlayer.name + ' is trying to set variable but didn\'t specify variable to set');
             socket.emit('serverMSG', 'Please specify varible to set and what to set it to.');
