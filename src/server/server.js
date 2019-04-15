@@ -429,7 +429,7 @@ io.on('connection', function (socket) {
         if (currentPlayer.admin) {
           if (data.length > 1) {
             try {
-              c[data[0]] == data[1];
+              //c[data[0]] == data[1];
               console.log('[ADMIN] ' + currentPlayer.name + ' set ' + data[0] + ' to ' + data[1]);
               socket.emit('serverMSG', 'set ' + data[0] + ' to ' + data[1]);
             }
