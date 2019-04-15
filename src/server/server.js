@@ -433,7 +433,7 @@ io.on('connection', function (socket) {
               console.log('[ADMIN] ' + currentPlayer.name + ' set ' + data[0] + ' to ' + data[1]);
               socket.emit('serverMSG', 'set ' + data[0] + ' to ' + data[1]);
             }
-            except(e) {
+            catch(e) {
               console.log('[ADMIN] ' + currentPlayer.name + ' couldn\'t set ' + data[0] + ' to ' + data[1]);
               socket.emit('serverMSG', 'couldn\'t set ' + data[0] + ' to ' + data[1]);
             }
