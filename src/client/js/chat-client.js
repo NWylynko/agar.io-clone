@@ -53,12 +53,15 @@ class ChatClient {
             self.printHelp();
         });
 
-        this.registerCommand('login', 'Login as an admin.', function (args) {
+        this.registerCommand('login', '[ADMIN] login', function (args) {
             self.socket.emit('pass', args);
         });
 
-        this.registerCommand('kick', 'Kick a player, for admins only.', function (args) {
+        this.registerCommand('kick', '[ADMIN] Kick a player', function (args) {
             self.socket.emit('kick', args);
+        });
+        this.registerCommand('set', '[ADMIN] set game variable', function (args) {
+            self.socket.emit('setvar', args);
         });
         global.chatClient = this;
     }

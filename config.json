@@ -17,10 +17,10 @@
 		"splitMass": 180
 	},
     "gameWidth": 1000,
-    "gameHeight": 1000,
+    "gameHeight": 3000,
     "adminPass": "DEFAULT",
     "gameMass": 20000,
-    "maxFood": 100,
+    "maxFood": 1000,
     "maxVirus": 0,
     "slowBase": 4.5,
     "logChat": 0,

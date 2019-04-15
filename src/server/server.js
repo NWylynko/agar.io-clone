@@ -425,6 +425,22 @@ io.on('connection', function (socket) {
         }
     });
 
+    socket.on('setvar', function(data) {
+        if (currentPlayer.admin) {
+          if (data.length > 1) {
+            console.log[data]
+            console.log('[ADMIN] ' + currentPlayer.name + ' set ' + data[0] + ' to ' + data[0]);
+            socket.emit('serverMSG', 'set ' + data[0] + ' to ' + data[0]);
+          } else {
+            console.log('[ADMIN] ' + currentPlayer.name + ' is trying to set variable but didn\'t specify variable to set');
+            socket.emit('serverMSG', 'Please specify varible to set and what to set it to.');
+          }
+        } else {
+            console.log('[ADMIN] ' + currentPlayer.name + ' is trying to set variable but isn\'t an admin.');
+            socket.emit('serverMSG', 'You are not permitted to use this command.');
+        }
+    });
+
     // Heartbeat function, update everytime.
     socket.on('0', function(target) {
         currentPlayer.lastHeartbeat = new Date().getTime();
