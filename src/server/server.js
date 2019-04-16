@@ -438,8 +438,14 @@ io.on('connection', function (socket) {
               socket.emit('serverMSG', 'couldn\'t set ' + data[0] + ' to ' + data[1]);
             }
           } else {
-            console.log('[ADMIN] ' + currentPlayer.name + ' is trying to set variable but didn\'t specify variable to set');
-            socket.emit('serverMSG', 'Please specify varible to set and what to set it to.');
+            try {
+              console.log('[ADMIN] ' + currentPlayer.name + ' get ' + data[0] + " | " + c[data[0]]);
+              socket.emit('serverMSG', data[0] + ' is ' + c[data[0]]);
+            }
+            catch(e) {
+              console.log('[ADMIN] ' + currentPlayer.name + ' couldn\'t get ' + data[0] + ', probable not varible ');
+              socket.emit('serverMSG', 'couldn\'t get ' + data[0] + ', probable not varible ');
+            }
           }
         } else {
             console.log('[ADMIN] ' + currentPlayer.name + ' is trying to set variable but isn\'t an admin.');
