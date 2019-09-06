@@ -1,3 +1,14 @@
+
+Forked and fixed a bug that would crash the server if a client used a wrong password,
+added small functionality to allow server admin to do more from the chat client
+
+
+
+
+
+
+
+
 Agar.io Clone
 =============
 
